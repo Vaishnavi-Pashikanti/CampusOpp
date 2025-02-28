@@ -1,5 +1,4 @@
 import React from "react";
-import { FaGoogle, FaLinkedin, FaFacebook } from "react-icons/fa";
 import "../../styles/Login.css";
 
 const Login = () => {

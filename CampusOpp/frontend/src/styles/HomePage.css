@@ -4,19 +4,49 @@
 nav{
    width: 100%;
    height: 8vh;
-   background-color: rgb(22, 115, 138); 
+   background-color: #8b9297;
    display: flex;
    flex-direction: row;
    justify-content: space-between;
    padding: 10px;
-
+   
 }
-
-/* nav ul{
+/* .logo{
+    margin-right: 100px;
+} */
+nav ul{
     list-style-type: none;
     display: flex;
     gap: 25px;
     margin-top: 5px;
     font-size: 20px;
-    margin-right: 75px;
-} */
+
+} 
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+.logo {
+    margin-left: 10px;  /* Adjust as needed */
+    height: 100%; /* Ensure it's a perfect circle */
+    border-radius: 50%; /* Makes it round */
+    object-fit: cover; /* Ensures the image fills the space properly */
+    border: 2px solid #fff; /* Optional: Adds a border around it */
+}
+
+
+/* header styles */
+header{
+    background-image: url(../assets/homeimg.jpg);
+    min-height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 100px;
+    margin-bottom: 40px;
+}
+.header-content{
+    width:70vh;
+
+}

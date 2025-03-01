@@ -27,82 +27,84 @@ const Signup = () => {
 
 
     return (
-        <div className="signup-container">
-            <form className="signup-form">
-                <h2>Create Account</h2>
+        <body className="signup-body">
+                <div className="signup-container">
+                <form className="signup-form">
+                    <h2>Create Account</h2>
 
-                <div className="name">
+                    <div className="name">
+                        <div className="input-container">
+                            <FaUser className="icon" />
+                            <input type="text" placeholder="Firstname" className="iname" required />
+                        </div>
+                        <div className="input-container">
+                            <FaUser className="icon" />
+                            <input type="text" placeholder="Lastname" className="iname" required />
+                        </div>
+                    </div>
+
                     <div className="input-container">
                         <FaUser className="icon" />
-                        <input type="text" placeholder="Firstname" className="iname" required />
+                        <input type="text" placeholder="Username" className="ip" required />
                     </div>
+
                     <div className="input-container">
-                        <FaUser className="icon" />
-                        <input type="text" placeholder="Lastname" className="iname" required />
+                        <FaEnvelope className="icon" />
+                        <input type="email" placeholder="Email" className="ip" required />
                     </div>
-                </div>
 
-                <div className="input-container">
-                    <FaUser className="icon" />
-                    <input type="text" placeholder="Username" className="ip" required />
-                </div>
+                    <div className="input-container">
+                        <FaLock className="icon" />
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            className="ip"
+                            required
+                        />
+                        {showPassword ? (
+                            <FaEyeSlash className="eye-icon" onClick={togglePasswordVisibility} />
+                        ) : (
+                            <FaEye className="eye-icon" onClick={togglePasswordVisibility} />
+                        )}
+                    </div>
+                
+                    <div className="input-container">
+                        <FaLock className="icon" />
+                        <input
+                            type={showConfirmPassword ? "text" : "password"}
+                            placeholder="Confirm Password"
+                            className="ip"
+                            required
+                        />
+                        {showConfirmPassword ? (
+                            <FaEyeSlash className="eye-icon" onClick={toggleConfirmPasswordVisibility} />
+                        ) : (
+                            <FaEye className="eye-icon" onClick={toggleConfirmPasswordVisibility} />
+                        )}
+                    </div>
 
-                <div className="input-container">
-                    <FaEnvelope className="icon" />
-                    <input type="email" placeholder="Email" className="ip" required />
-                </div>
+                    <div className="terms">
+                        <input type="checkbox" id="terms" required />
+                        <label htmlFor="terms">I agree to the terms and conditions</label>
+                    </div>
 
-                <div className="input-container">
-                    <FaLock className="icon" />
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Password"
-                        className="ip"
-                        required
-                    />
-                    {showPassword ? (
-                        <FaEyeSlash className="eye-icon" onClick={togglePasswordVisibility} />
-                    ) : (
-                        <FaEye className="eye-icon" onClick={togglePasswordVisibility} />
-                    )}
-                </div>
-            
-                <div className="input-container">
-                    <FaLock className="icon" />
-                    <input
-                        type={showConfirmPassword ? "text" : "password"}
-                        placeholder="Confirm Password"
-                        className="ip"
-                        required
-                    />
-                    {showConfirmPassword ? (
-                        <FaEyeSlash className="eye-icon" onClick={toggleConfirmPasswordVisibility} />
-                    ) : (
-                        <FaEye className="eye-icon" onClick={toggleConfirmPasswordVisibility} />
-                    )}
-                </div>
+                    <button type="submit">Sign Up</button>
 
-                <div className="terms">
-                    <input type="checkbox" id="terms" required />
-                    <label htmlFor="terms">I agree to the terms and conditions</label>
-                </div>
+                    <div className="socialDivider"><span>or</span></div>
 
-                <button type="submit">Sign Up</button>
+                    <div className="social-login">
+                        <a href="/auth/google">
+                            <img src="/icons/googles.svg" alt="Google Login" className="social-icon" />
+                        </a>
+                        <a href="/auth/linkedin">
+                            <img src="/icons/linkedins.svg" alt="LinkedIn Login" className="social-icon" />
+                        </a>
+                    </div>
 
-                <div className="socialDivider"><span>or</span></div>
-
-                <div className="social-login">
-                    <a href="/auth/google">
-                        <img src="/icons/googles.svg" alt="Google Login" className="social-icon" />
-                    </a>
-                    <a href="/auth/linkedin">
-                        <img src="/icons/linkedins.svg" alt="LinkedIn Login" className="social-icon" />
-                    </a>
-                </div>
-
-                <p className="have-acc">Already have an account? <a href="/login">Login</a></p>
-            </form>
-        </div>
+                    <p className="have-acc">Already have an account? <a href="/login">Login</a></p>
+                </form>
+            </div>
+        </body>
     );
 };
 

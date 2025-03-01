@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-body {
+.signup-body {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVL_sC17xW6uOW2cFIcJLSz2t-hYEYw8rJ5w&s);
     background-size: cover;
     background-position: center;

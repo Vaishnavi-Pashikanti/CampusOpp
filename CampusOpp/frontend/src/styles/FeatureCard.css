@@ -1,0 +1,25 @@
+.feature-card {
+    width: 350px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+  
+  .feature-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .feature-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .feature-description {
+    font-size: 14px;
+    color: gray;
+  }
+  

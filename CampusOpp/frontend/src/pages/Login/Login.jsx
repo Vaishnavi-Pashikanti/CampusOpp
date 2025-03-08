@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 
 import "../../styles/Login.css";
 
 const Login = () => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleLogin = (e) => {
-        e.preventDefault(); 
-
+        e.preventDefault();
         console.log("Login successful! Navigating to Home...");
+        navigate("/home");
+    };
 
-        navigate("/home"); 
+    const togglePasswordVisibility = () => {
+        setShowPassword((prev) => !prev);
     };
 
     const handleGoogleLogin = () => {
@@ -22,15 +27,42 @@ const Login = () => {
     const handleLinkedInLogin = () => {
         window.open("http://localhost:5000/auth/linkedin", "_self");
     };
-    
+
     return (
-        <body className="login-body">
+        <div className="login-body">
             <div className="login-container">
-                <form className="login-form" onSubmit={handleLogin}> 
+                <form className="login-form" onSubmit={handleLogin}>
                     <h2>Login</h2>
-                    <input type="text" placeholder="UserName" className="ip" required />
-                    <input type="password" placeholder="Password" className="ip" required />
-                    
+
+                    {/* Username Input */}
+                    <div className="input-container">
+                        <FaUser className="input-icon" />
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            className="ip"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    {/* Password Input */}
+                    <div className="input-container">
+                        <FaLock className="input-icon" />
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            className="ip"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <span className="eye-icon" onClick={togglePasswordVisibility}>
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
+                    </div>
+
                     <div className="options">
                         <label className="rem">
                             <input type="checkbox" className="checkbox" /> Remember Me
@@ -40,7 +72,9 @@ const Login = () => {
 
                     <button type="submit">Login</button>
 
+                    {/* Social Divider */}
                     <div className="socialDivider"><span>or</span></div>
+
                     <div className="social-login">
                         <a href="/auth/google">
                             <img src="/icons/googles.svg" alt="Google Login" className="social-icon" />
@@ -55,7 +89,7 @@ const Login = () => {
                     </p>
                 </form>
             </div>
-        </body>
+        </div>
     );
 };
 

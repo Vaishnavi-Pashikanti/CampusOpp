@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../styles/HomePage.css'
+import FeatureSection from '../../components/FeatureSection';
 import logo from '../../assets/logo.jpeg';
 
 function Homepage() {
@@ -30,7 +31,8 @@ function Homepage() {
         <p>CampusOppurtuna empowers students and professionals through learning, and career opportunities, helping them explore, grow, and achieve success effortlessly.</p>
         </div>
       </header>
-
+      {/* Feature Section */}
+      <FeatureSection />
       
       
     </body>

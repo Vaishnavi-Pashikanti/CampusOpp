@@ -1,34 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/Signup.css";
-import { useState } from "react";
 import { FaUser, FaEnvelope, FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 
 const Signup = () => {
-
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        setShowPassword((prev) => !prev);
     };
 
     const toggleConfirmPasswordVisibility = () => {
-        setShowConfirmPassword(!showConfirmPassword);
+        setShowConfirmPassword((prev) => !prev);
     };
-
-
-    const handleGoogleSignup = () => {
-        window.open("http://localhost:5000/auth/google", "_self");
-    };
-
-    const handleFacebookSignup = () => {
-        window.open("http://localhost:5000/auth/facebook", "_self");
-    };
-
 
     return (
-        <body className="signup-body">
-                <div className="signup-container">
+        <div className="signup-body">
+            <div className="signup-container">
                 <form className="signup-form">
                     <h2>Create Account</h2>
 
@@ -53,34 +43,36 @@ const Signup = () => {
                         <input type="email" placeholder="Email" className="ip" required />
                     </div>
 
+                    {/* Password Field */}
                     <div className="input-container">
                         <FaLock className="icon" />
                         <input
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
                             className="ip"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                         />
-                        {showPassword ? (
-                            <FaEyeSlash className="eye-icon" onClick={togglePasswordVisibility} />
-                        ) : (
-                            <FaEye className="eye-icon" onClick={togglePasswordVisibility} />
-                        )}
+                        <span className="eye-icon" onClick={togglePasswordVisibility}>
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
                     </div>
-                
+
+                    {/* Confirm Password Field */}
                     <div className="input-container">
                         <FaLock className="icon" />
                         <input
                             type={showConfirmPassword ? "text" : "password"}
                             placeholder="Confirm Password"
                             className="ip"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
-                        {showConfirmPassword ? (
-                            <FaEyeSlash className="eye-icon" onClick={toggleConfirmPasswordVisibility} />
-                        ) : (
-                            <FaEye className="eye-icon" onClick={toggleConfirmPasswordVisibility} />
-                        )}
+                        <span className="eye-icon" onClick={toggleConfirmPasswordVisibility}>
+                            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
                     </div>
 
                     <div className="terms">
@@ -104,7 +96,7 @@ const Signup = () => {
                     <p className="have-acc">Already have an account? <a href="/login">Login</a></p>
                 </form>
             </div>
-        </body>
+        </div>
     );
 };
 
